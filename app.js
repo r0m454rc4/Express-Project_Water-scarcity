@@ -1,8 +1,21 @@
+const https = require("https");
+const fs = require("fs");
+const express = require("express");
+const path = require("path");
+
+const app = express();
 const port = 8888;
 
-var express = require("express");
-const path = require("path");
-var app = express();
+// https://github.com/martirodm/GeoTag/blob/main/Documentation/GeoTagInstallation-Manual.pdf
+const httpsOptions = {
+  // openssl genrsa -out server.key 2048.
+  key: fs.readFileSync("./cert/server.key"),
+  // openssl req -new -key server.key -out server.csr, openssl x509 -req -in server.csr -signkey server.key -out server.crt.
+  cert: fs.readFileSync("./cert/server.crt"),
+};
+
+const server = https.createServer(httpsOptions, app);
+
 app.use(express.static("public"));
 
 app.get("/", function (req, res) {
@@ -33,7 +46,6 @@ app.get("/login", function (req, res) {
   res.sendFile(path.join(__dirname + "/public", "login.html"));
 });
 
-
-app.listen(port, function () {
-  console.log(`Servidor escoltant a http://localhost:${port}`);
+server.listen(port, function () {
+  console.log(`Servidor escoltant a https://localhost:${port}`);
 });
