@@ -1,0 +1,516 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Lilita+One&family=Pixelify+Sans:wght@500&display=swap");
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  font-family: "Lilita One", sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 5px;
+  background-color: #4eb8dd;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+h2 {
+  margin-top: 8%;
+  font-family: "Kanit", sans-serif;
+}
+/* Fondo de todas las paginas y estilos de la barra de navegacion */
+nav {
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 100px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  padding: 10px;
+  margin-left: 60px;
+  width: 90%;
+  position: relative;
+  z-index: 1;
+}
+
+.nav {
+  font-family: "Exo 2", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.nav * {
+  box-sizing: border-box;
+  transition: all 0.35s ease;
+}
+
+.nav li {
+  display: inline-block;
+  list-style: outside none none;
+  margin: 0.5em 1em;
+  padding: 0;
+}
+
+.nav > li > a {
+  padding: 0.5em 0.8em;
+  color: rgb(61, 150, 180);
+  position: relative;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.nav > li > a::before,
+.nav > li > a::after {
+  content: "";
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  transition: all 0.35s ease;
+  opacity: 0;
+}
+
+.nav > li > a::before {
+  content: "";
+  right: 0;
+  top: 0;
+  border-top: 3px solid rgb(38, 127, 157);
+  border-right: 3px solid rgb(38, 127, 157);
+  transform: translate(-100%, 50%);
+}
+
+.nav > li > a:after {
+  content: "";
+  left: 0;
+  bottom: 0;
+  border-bottom: 3px solid rgb(38, 127, 157);
+  border-left: 3px solid rgb(38, 127, 157);
+  transform: translate(100%, -50%);
+}
+
+.nav > li > a:hover:before,
+.nav > li > a:hover:after {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.nav > li > a:hover {
+  color: rgb(38, 127, 157);
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  color: rgb(11, 67, 86);
+}
+
+div.panellAdmin {
+  margin-top: 10%;
+  margin-left: 45%;
+  margin-right: 45%;
+}
+
+/* Fondo de todas las paginas y estilos de la barra de navegacion */
+
+.form#registreUsuari {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 580px;
+  height: 800px;
+  background-color: #fff;
+  margin-top: 7%;
+  margin-left: 37%;
+  margin-right: 45%;
+  margin-bottom: 2%;
+  box-shadow: -1px 0px 25px 0px #21719369;
+  padding: 2.25em;
+  box-sizing: border-box;
+  border: solid 1px #ddd;
+  border-radius: 0.5em;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.form .Group#registreUsuari {
+  margin-bottom: 2em;
+}
+
+.form#registreUsuari label {
+  margin: 0 0 10px;
+  display: block;
+  font-size: 1.25em;
+  color: #217093;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.form#registreUsuari input {
+  padding: 0.3em 0.5em 0.4em;
+  background-color: #f3fafd;
+  border: solid 2px #217093;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  font-size: 1.3em;
+  color: #353538;
+  font-weight: 600;
+  font-family: inherit;
+  transition: box-shadow 0.2s linear, border-color 0.25s ease-out;
+}
+
+.form#registreUsuari input:focus {
+  outline: none;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #edf8fc;
+  border: solid 2px #4eb8dd;
+}
+
+.form#registreUsuari input::placeholder {
+  color: #21719383;
+}
+
+.form#registreUsuari .btn {
+  margin: 0;
+  padding: 0.5em;
+  background-color: #4eb8dd;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: none;
+  width: 100%;
+  height: 50px;
+  font-size: 1.4em;
+  color: #fff;
+  font-weight: 600;
+  font-family: inherit;
+  transition: transforme 0.1s ease-in-out, background-color 0.2s ease-out;
+}
+
+.form#registreUsuari .btn:hover {
+  cursor: pointer;
+  background-color: #217093;
+}
+
+.form#registreUsuari .btn:active {
+  transform: scale(0.98);
+}
+
+.form {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 480px;
+  height: 550px;
+  background-color: #fff;
+  margin-top: 10%;
+  margin-left: 37%;
+  margin-right: 45%;
+  box-shadow: -1px 0px 25px 0px #21719369;
+  padding: 2.25em;
+  box-sizing: border-box;
+  border: solid 1px #ddd;
+  border-radius: 0.5em;
+  font-family: sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.form .Group {
+  margin-bottom: 2em;
+}
+
+.form label {
+  margin: 0 0 10px;
+  display: block;
+  font-size: 1.25em;
+  color: #217093;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.form input {
+  padding: 0.3em 0.5em 0.4em;
+  background-color: #f3fafd;
+  border: solid 2px #217093;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  font-size: 1.3em;
+  color: #353538;
+  font-weight: 600;
+  font-family: inherit;
+  transition: box-shadow 0.2s linear, border-color 0.25s ease-out;
+}
+
+.form input:focus {
+  outline: none;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  background-color: #edf8fc;
+  border: solid 2px #4eb8dd;
+}
+
+.form input::placeholder {
+  color: #21719383;
+}
+
+.form .btn {
+  margin: 0;
+  padding: 0.5em;
+  background-color: #4eb8dd;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: none;
+  width: 100%;
+  height: 50px;
+  font-size: 1.4em;
+  color: #fff;
+  font-weight: 600;
+  font-family: inherit;
+  transition: transforme 0.1s ease-in-out, background-color 0.2s ease-out;
+}
+
+.form .btn:hover {
+  cursor: pointer;
+  background-color: #217093;
+}
+
+.form .btn:active {
+  transform: scale(0.98);
+}
+
+/* Empiezan los estilos de la pagina nosaltres */
+
+.titulo-nosaltres {
+  text-align: center;
+  margin-top: 160px; /* Ajusta según tus necesidades */
+}
+
+.titulo-nosaltres h1 {
+  font-size: 100px;
+  color: rgba(50, 60, 137, 0.1);
+  letter-spacing: 30px;
+}
+
+.texto-superior-nosaltres {
+  position: absolute;
+  margin-top: 198px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  color: #8499ad;
+  letter-spacing: 3px;
+}
+
+.nuevo-div {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: rgb(38, 127, 157);
+  padding-bottom: 20px;
+}
+
+h2 {
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+}
+
+.button-container {
+  text-align: center; /* Centrar horizontalmente */
+}
+
+.ver-catalogo-btn {
+  font-family: "Exo 2", sans-serif;
+  font-size: large;
+  background-color: rgb(11, 67, 86);
+  color: #f8f9fa;
+  border: 2px solid #f8f9fa;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.ver-catalogo-btn:hover {
+  background-color: #f8f9fa;
+  color: rgb(11, 67, 86);
+}
+
+/* Acaban los estilos de la pagina nosaltres */
+
+/* Empiezan los estilos de la pagina noticias */
+
+.layout {
+  margin-top: 40px;
+  margin-left: 280px;
+  width: 1200px;
+  height: 600px;
+
+  display: grid;
+  grid:
+    "noticia1 noticia3 " 1fr
+    "noticia2 noticia3 " 1fr;
+  gap: 40px;
+}
+
+.noticia1,
+.noticia2 {
+  width: 275px;
+}
+
+.titulo {
+  font-size: 19pt;
+  font-weight: bold;
+  color: #494847;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.noticia1 img {
+  width: 275px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.noticia2 img {
+  width: 275px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.noticia3 video {
+  width: 1000px;
+  height: 800px;
+  height: fit-content;
+  object-fit: cover;
+}
+
+.noticia1 {
+  grid-area: noticia1;
+}
+.noticia2 {
+  grid-area: noticia2;
+}
+.noticia3 {
+  grid-area: noticia3;
+}
+
+h1.noticias {
+  margin-top: 130px;
+  margin-left: 280px;
+  color: #b5b5b4;
+  font-size: 60px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Acaban los estilos de la pagina noticias */
+
+/* Empiezan los estilos de contacte.html */
+
+.titulo-contacto {
+  text-align: center;
+  margin-top: 130px; /* Ajusta según tus necesidades */
+}
+
+.titulo-contacto h1 {
+  font-size: 100px;
+  color: rgba(50, 60, 137, 0.1);
+  letter-spacing: 30px;
+  margin-bottom: 20px;
+}
+
+.texto-superior {
+  position: absolute;
+  margin-top: 167px;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 30px;
+  color: #8499ad;
+  letter-spacing: 3px;
+}
+
+/* Estilos formulario contacte */
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 1000px;
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.left-container,
+.right-container {
+  width: 48%; /* Ajusta según tus necesidades */
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: rgb(11, 67, 86);
+}
+
+input,
+select,
+textarea {
+  width: 100%; /* Modificado para ocupar el ancho completo del contenedor padre */
+  padding: 8px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.boton-contacto {
+  font-family: "Exo 2", sans-serif;
+  font-size: large;
+  background-color: #217093;
+  border-color: white;
+  color: #fff;
+  width: 10%;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.boton-contacto:hover {
+  background-color: rgb(11, 67, 86);
+}
+
+.button-container {
+  text-align: center;
+}
+
+/* Acaban los estilos del formulario de contacto */
