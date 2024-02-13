@@ -6,6 +6,13 @@ const path = require("path");
 const app = express();
 const port = 8888;
 
+const index = require("./routes/index");
+const nosotros = require("./routes/nosotros");
+const contacto = require("./routes/contacto");
+const kids = require("./routes/kids");
+const admin = require("./routes/admin");
+const login = require("./routes/login");
+
 // https://github.com/martirodm/GeoTag/blob/main/Documentation/GeoTagInstallation-Manual.pdf
 const httpsOptions = {
   // openssl genrsa -out server.key 2048.
@@ -16,35 +23,21 @@ const httpsOptions = {
 
 const server = https.createServer(httpsOptions, app);
 
-app.use(express.static("public"));
+app.use(express.static("./routes/public"));
 
-app.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname + "/public", "index.html"));
-});
+app.use("/", index);
 
-app.get("/index", function (req, res) {
-  res.sendFile(path.join(__dirname + "/public", "index.html"));
-});
+app.use("/index", index);
 
-app.get("/nosotros", function (req, res) {
-  res.sendFile(path.join(__dirname + "/public", "nosotros.html"));
-});
+app.use("/nosotros", nosotros);
 
-app.get("/contacto", function (req, res) {
-  res.sendFile(path.join(__dirname + "/public", "contacto.html"));
-});
+app.use("/contacto", contacto);
 
-app.get("/kids", function (req, res) {
-  res.sendFile(path.join(__dirname + "/public", "kids.html"));
-});
+app.use("/kids", kids);
 
-app.get("/admin", function (req, res) {
-  res.sendFile(path.join(__dirname + "/public", "admin.html"));
-});
+app.use("/admin", admin);
 
-app.get("/login", function (req, res) {
-  res.sendFile(path.join(__dirname + "/public", "login.html"));
-});
+app.use("/login", login);
 
 server.listen(port, function () {
   console.log(`Servidor escoltant a https://localhost:${port}`);
