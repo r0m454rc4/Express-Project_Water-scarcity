@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  form(name="input", method="get")
+    | nombre1: 
+    input(type="number", name="n1")
+    |  nombre2: 
+    input(type="number", name="n2")
+
+    input(
+      type='submit'
+      value='Suma'
+      formaction='suma'
+    )
+    
+    input(
+      type='submit'
+      value='Resta'
+      formaction='resta'
+    )
+
+    input(
+      type='submit'
+      value='Multiplicacio'
+      formaction='multipilicacio'
+    )
+
+    input(
+      type='submit'
+      value='Divisio'
+      formaction='divisio'
+    )
