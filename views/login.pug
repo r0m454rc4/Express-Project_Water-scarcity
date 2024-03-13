@@ -1,0 +1,17 @@
+html
+  head
+    title #{titol}
+    link(rel='stylesheet', href='./style.css')
+  body
+    form(method="post" class="form" action="/comprovarUsuariBD")
+      | Email: 
+      input(id="correu", name="correu", placeholder="abc@email.com", type="email")
+      | Contrasenya: 
+      input(id="passwd", name="passwd", type="password")
+
+      input(
+        id="botoEnvia"
+        class="btn" 
+        type="submit"
+        value="Iniciar sessió"
+      )
