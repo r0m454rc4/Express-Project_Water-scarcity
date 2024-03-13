@@ -7,11 +7,9 @@ const app = express();
 const port = 8888;
 
 const index = require("./routes/index");
-const nosotros = require("./routes/nosotros");
-const contacto = require("./routes/contacto");
-const kids = require("./routes/kids");
-const admin = require("./routes/admin");
 const login = require("./routes/login");
+const comprovarUsuariBD = require("./routes/comprovarUsuariBD");
+
 
 // https://github.com/martirodm/GeoTag/blob/main/Documentation/GeoTagInstallation-Manual.pdf
 const httpsOptions = {
@@ -33,15 +31,9 @@ app.use("/", index);
 
 app.use("/index", index);
 
-app.use("/nosotros", nosotros);
-
-app.use("/contacto", contacto);
-
-app.use("/kids", kids);
-
-app.use("/admin", admin);
-
 app.use("/login", login);
+
+app.use("/comprovarUsuariBD", comprovarUsuariBD);
 
 server.listen(port, function () {
   console.log(`Servidor escoltant a https://localhost:${port}`);
