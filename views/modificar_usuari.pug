@@ -1,0 +1,27 @@
+html
+  head
+    title #{titol}
+    link(rel='stylesheet', href='./style.css')
+  body
+    form(method="post" class="form" action="/registre_usuari.js")
+      | Nom usuari a modificar: 
+      input(id="nomUsuari", name="nomUsuari", placeholder="Pepito123", type="text")
+      | Nom i Cognom: 
+      input(id="nomCognom", name="nomCognom", placeholder="Javier Torres Museo", type="text")
+      | Edat: 
+      input(id="edat", name="edat", placeholder="23", type="text")
+      | Correu: 
+      input(id="correu", name="correu", placeholder="abc@email.com", type="email")
+      | Contrasenya: 
+      input(id="passwd", name="passwd", type="password")
+      | Telefon: 
+      input(id="telf", name="telf", placeholder="+34 123456789", type="text")
+      | Tipus: 
+      input(id="tipus", name="tipus", type="text")
+
+      input(
+        id="botoEnvia"
+        class="btn" 
+        type="submit"
+        value="Modificar usuari"
+      )
