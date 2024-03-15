@@ -2,8 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", function (req, res, next) {
-  res.render("login", {
-    titol: "Login",
+  res.render("modificar_usuari", {
+    titol: "Modificar usuari",
   });
 });
 
