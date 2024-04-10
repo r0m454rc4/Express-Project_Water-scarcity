@@ -1,0 +1,45 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Contacto
+    link(rel="stylesheet", href="./style.css")
+  body
+    header
+      nav
+        ul.nav
+          li
+            a(href="./index", class="active") Inicio
+          li
+            a(href="./nosotros") Nosotros
+          li
+            a(href="./noticias") Noticias
+          li
+            a(href="./contacto") Contacto
+          li
+            a(href="./login") Login
+
+    div.titulo-contacto
+      h1 CONTACTA
+      h2.texto-superior CONTACTA
+    br
+    br
+    div.form-container
+      div.left-container
+        label(for="nombre") NOMBRE
+        input(type="text", id="nombre", name="nombre", required)
+        label(for="apellidos") APELLIDOS
+        input(type="text", id="apellidos", name="apellidos", required)
+        label(for="correo") CORREO ELECTRÓNICO
+        input(type="email", id="correo", name="correo", required)
+      div.right-container
+        label(for="tema") TEMA
+        select(id="tema", name="tema")
+          option(value="consulta") Consulta
+          option(value="soporte") Soporte Técnico
+          option(value="sugerencia") Sugerencia
+        label(for="mensaje") MENSAJE
+        textarea(id="mensaje", name="mensaje", rows="4", required)
+    div.button-container
+      button.boton-contacto(type="submit") Enviar
