@@ -11,6 +11,7 @@ const login = require("./routes/login");
 const comprovarUsuariBD = require("./routes/comprovarUsuariBD");
 const registre_usuari = require("./routes/registre_usuari");
 const modificar_usuari = require("./routes/modificar_usuari");
+const borrar_usuari = require("./routes/borrar_usuari");
 
 // https://github.com/martirodm/GeoTag/blob/main/Documentation/GeoTagInstallation-Manual.pdf
 const httpsOptions = {
@@ -36,12 +37,13 @@ app.use("/index", index);
 
 app.use("/login", login);
 
-// FIX IT.
 app.post("/comprovarUsuariBD", comprovarUsuariBD);
 
 app.use("/registre_usuari", registre_usuari);
 
 app.use("/modificar_usuari", modificar_usuari);
+
+app.use("/borrar_usuari", borrar_usuari);
 
 server.listen(port, function () {
   console.log(`Servidor escoltant a https://localhost:${port}`);
