@@ -10,9 +10,9 @@ router.get("/nosotros", function (req, res, next) {
   res.render("nosotros");
 });
 
-router.get("/noticias", function (req, res, next) {
-  // res.sendFile(path.join(__dirname + "/public", "noticias.html"));
-  res.render("noticias");
+router.get("/datosSequia", function (req, res, next) {
+  // res.sendFile(path.join(__dirname + "/public", "datosSequia.html"));
+  res.render("datosSequia");
 });
 
 router.get("/contacto", function (req, res, next) {
@@ -20,9 +20,9 @@ router.get("/contacto", function (req, res, next) {
   res.render("contacto");
 });
 
-router.get("/geolocalizacion_OSM", function (req, res, next) {
+router.get("/geolocalizacio_OSM", function (req, res, next) {
   // res.sendFile(path.join(__dirname + "/public", "geolocalitzacio.html"));
-  res.render("geolocalizacion_OSM");
+  res.render("geolocalizacio_OSM");
 });
 
 router.get("/admin", function (req, res, next) {

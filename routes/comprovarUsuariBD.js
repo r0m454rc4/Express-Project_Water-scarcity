@@ -1,14 +1,19 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
-
 const router = express.Router();
 
+mongoose.set("strictQuery", false);
 mongoose.connect("mongodb://localhost:27017/gp1-projectePart2");
 
 const esquemaUsuari = new mongoose.Schema({
   correu: String,
-  edat: Number,
+  edat: {
+    type: Number,
+    min: 1,
+    max: 99,
+    required: [true, "Edat no valida."],
+  },
   nomCognom: String,
   nomUsuari: String,
   telf: String,
@@ -30,30 +35,20 @@ router.post("/comprovarUsuariBD", function (req, res, next) {
       try {
         let usuari = await modelUsuari.findOne({
           correu: correu,
+          contrasenya: contrasenya,
         });
 
         if (usuari) {
-          const usuariTrobat = await bcrypt.compare(
-            contrasenya,
-            usuari.contrasenya
-          );
+          console.log(`Usuari connectat a mongodb fent servir mongoose.`);
 
-          if (usuariTrobat) {
-            console.log(
-              `Usuari ${usuari.nomUsuari} connectat a mongodb fent servir mongoose.`
-            );
-            if (usuari.tipus == "admin") {
-              // Handle admin login
-            }
-            res.location("admin");
-            res.redirect("admin");
-          } else {
-            console.log("Credencials incorrectes.");
-            res.location("login");
-            res.redirect("login");
+          if (usuari.tipus == "admin") {
+            console.log("USERTYPE = admin.");
           }
+
+          res.location("admin");
+          res.redirect("admin");
         } else {
-          console.log("Usuari no trobat.");
+          console.log("Credencials incorrectes, o usuari no trobat.");
           res.location("login");
           res.redirect("login");
         }
