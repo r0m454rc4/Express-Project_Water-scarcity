@@ -3,6 +3,20 @@ html
     title #{titol}
     link(rel='stylesheet', href='./style.css')
   body
+    header
+      nav
+        ul.nav
+          li
+            a(href="./index", class="active") Inicio
+          li
+            a(href="./nosotros") Nosotros
+          li
+            a(href="./datosSequia") Datos sequia
+          li
+            a(href="./contacto") Contacto
+          li
+            a(href="./login") Login
+
     form(method="post", class="form", action="/comprovarUsuariBD")
       | Correu:
       input(name="correu", placeholder="abc@email.com", type="email")

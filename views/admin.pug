@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Admin
+    link(rel="stylesheet", href="./style.css")
+  body
+    header
+      nav
+        ul.nav
+          li
+            a(href="./index", class="active") Inicio
+          li
+            a(href="./nosotros") Nosotros
+          li
+            a(href="./datosSequia") Datos sequia
+          li
+            a(href="./contacto") Contacto
+          li
+            a(href="./admin") Admin
+          li
+            a(href="./login") Login
+            
+    div.panellAdmin
+      li.list-group-item
+        a(href="./registre_usuari") Registrar nou usuari
+      li.list-group-item
+        a(href="./modificar_usuari") Modificar usuari
+      li.list-group-item
+        a(href="./borrar_usuari") Borrar usuari
