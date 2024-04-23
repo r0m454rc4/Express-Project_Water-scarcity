@@ -12,7 +12,8 @@ router.get("/", function (req, res, next) {
   });
 });
 
-router.post("/registre_usuari", function (req, res, next) {
+// This is to register an user after submitting the form.
+router.post("/registre_usuari", async function (req, res, next) {
   // If I submit the form.
   if (req.method == "POST") {
     let nomUsuari = req.body.nomUsuari;
@@ -35,11 +36,11 @@ router.post("/registre_usuari", function (req, res, next) {
       tipus
     ) {
       try {
-        let usuari = new Usuari({
+        let usuari = await new Usuari({
           nomUsuari: nomUsuari,
           nomCognom: nomCognom,
           edat: edat,
-          correuUsuari: correu,
+          correuUsuari: correuUsuari,
           passwd: passwd,
           telf: telf,
           tipus: tipus,
@@ -48,9 +49,10 @@ router.post("/registre_usuari", function (req, res, next) {
         if (usuari) {
           console.log(`Usuari connectat a mongodb fent servir mongoose.`);
           usuari.save();
+          console.log("Usuari registrat correctament");
 
-          res.location("registre_usuari");
-          res.redirect("registre_usuari");
+          res.location("admin");
+          res.redirect("admin");
         }
       } catch (error) {
         console.error(error);
@@ -58,15 +60,7 @@ router.post("/registre_usuari", function (req, res, next) {
       }
     }
 
-    registreUsuariBD(
-      nomUsuari,
-      nomCognom,
-      edat,
-      correuUsuari,
-      passwd,
-      telf,
-      tipus
-    );
+    registreUsuariBD(nomUsuari, nomCognom, edat, correu, passwd, telf, tipus);
   }
 });
 

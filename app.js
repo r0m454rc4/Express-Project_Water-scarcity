@@ -39,12 +39,15 @@ app.use("/login", login);
 
 app.post("/comprovarUsuariBD", comprovarUsuariBD);
 
+// There are two routes, as I must be able to load the form, and send it to register the new user.
 app.use("/registre_usuari", registre_usuari);
 app.post("/registre_usuari", registre_usuari);
 
 app.use("/modificar_usuari", modificar_usuari);
+app.post("/modificar_usuari", modificar_usuari);
 
 app.use("/borrar_usuari", borrar_usuari);
+app.post("/borrar_usuari", borrar_usuari);
 
 server.listen(port, function () {
   console.log(`Servidor escoltant a https://localhost:${port}`);
