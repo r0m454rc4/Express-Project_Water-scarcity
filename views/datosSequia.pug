@@ -4,7 +4,7 @@ html(lang="en")
   head
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
-    title datosSequia
+    title Datos sequia
     link(rel="stylesheet", href="./style.css")
   body
     header
@@ -24,5 +24,29 @@ html(lang="en")
     h1.datosSequia Datos sobre sequia
     section.layout
       div.tabla
-        br
-        span.titulo Datos de la sequía en Cataluña: más de siete millones de personas afrontan restricciones por la falta de agua.
+        table(style="border-collapse: collapse; width: 100%;")
+          thead
+          tr(style="border-bottom: 1px solid #000;")
+            th(style="padding: 8px; text-align: center;") Pais
+            th(style="padding: 8px; text-align: center;") Sequera
+          tbody
+            tr(style="border-bottom: 1px solid #000;")
+              td(style="padding: 8px;") Barcelona
+              td(style="padding: 8px;") 70%
+            tr(style="border-bottom: 1px solid #000;")
+              td(style="padding: 8px;") Madrid
+              td(style="padding: 8px;") 52%
+            tr(style="border-bottom: 1px solid #000;")
+              td(style="padding: 8px;") Andalucia
+              td(style="padding: 8px;") 35%
+
+            tr(style="border-bottom: 1px solid #000;")
+              td(style="padding: 8px;") Valencia
+              td(style="padding: 8px;") 61%
+            tr(style="border-bottom: 1px solid #000;")
+              td(style="padding: 8px;") Vall d'Aran
+              td(style="padding: 8px;") 47%
+            tr
+              td(style="padding: 8px;") Lleida
+              td(style="padding: 8px;") 89%
+

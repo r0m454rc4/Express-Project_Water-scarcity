@@ -339,6 +339,14 @@ div.panellAdmin {
   background-color: rgb(38, 127, 157);
 }
 
+.nuevo-div1 {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 725px;
+  background-color: rgb(38, 127, 157);
+}
+
 h2 {
   margin-top: 10px;
   color: white;
@@ -346,7 +354,11 @@ h2 {
 }
 
 .button-container {
-  text-align: center; /* Centrar horizontalmente */
+  text-align: center;
+}
+
+.tabla {
+  text-align: center;
 }
 
 .ver-catalogo-btn {
@@ -372,7 +384,7 @@ h2 {
 
 h1.datosSequia {
   margin-top: 130px;
-  margin-left: 280px;
+  text-align: center;
   color: #b5b5b4;
   font-size: 60px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
