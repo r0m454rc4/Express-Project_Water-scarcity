@@ -1,5 +1,11 @@
 const express = require("express");
 const router = express.Router();
+// const fs = require("fs");
+
+// // Load JSON data from an external file
+// const jsonData = JSON.parse(fs.readFileSync("../droguhtData/USDM-current-original.json"));
+// console.log(jsonData);
+
 router.get("/", function (req, res, next) {
   // res.sendFile(path.join(__dirname + "/public", "index.html"));
   res.render("index");

@@ -40,6 +40,7 @@ app.use("/login", login);
 app.post("/comprovarUsuariBD", comprovarUsuariBD);
 
 app.use("/registre_usuari", registre_usuari);
+app.post("/registre_usuari", registre_usuari);
 
 app.use("/modificar_usuari", modificar_usuari);
 

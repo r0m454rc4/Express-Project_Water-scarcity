@@ -1,27 +1,12 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
 const router = express.Router();
+const Usuari = require("./modelUsuari");
 
 mongoose.set("strictQuery", false);
 mongoose.connect("mongodb://localhost:27017/gp1-projectePart2");
 
-const esquemaUsuari = new mongoose.Schema({
-  correu: String,
-  edat: {
-    type: Number,
-    min: 1,
-    max: 99,
-    required: [true, "Edat no valida."],
-  },
-  nomCognom: String,
-  nomUsuari: String,
-  telf: String,
-  tipus: String,
-  contrasenya: String,
-});
-
-const modelUsuari = mongoose.model("usuaris-projectePart2", esquemaUsuari);
+const modelUsuari = Usuari;
 
 router.post("/comprovarUsuariBD", function (req, res, next) {
   // If I submit the form.
@@ -31,22 +16,20 @@ router.post("/comprovarUsuariBD", function (req, res, next) {
     console.log(`Correu: ${correu}, contrasenya: ${contrasenya}`);
     console.log("Connexio correcta amb mongodb fent servir mongoose.");
 
-    async function comprovarUsuariBD() {
+    async function comprovarUsuariBD(correuUsuari, contrasenyaUsuari) {
       try {
         let usuari = await modelUsuari.findOne({
-          correu: correu,
-          contrasenya: contrasenya,
+          correu: correuUsuari,
+          contrasenya: contrasenyaUsuari,
         });
 
         if (usuari) {
           console.log(`Usuari connectat a mongodb fent servir mongoose.`);
 
           if (usuari.tipus == "admin") {
-            console.log("USERTYPE = admin.");
+            res.location("admin");
+            res.redirect("admin");
           }
-
-          res.location("admin");
-          res.redirect("admin");
         } else {
           console.log("Credencials incorrectes, o usuari no trobat.");
           res.location("login");
@@ -58,7 +41,7 @@ router.post("/comprovarUsuariBD", function (req, res, next) {
       }
     }
 
-    comprovarUsuariBD();
+    comprovarUsuariBD(correu, contrasenya);
   }
 });
 
