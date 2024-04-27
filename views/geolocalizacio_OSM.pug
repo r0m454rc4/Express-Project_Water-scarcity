@@ -23,9 +23,12 @@ html(lang="ca")
     h1 Geolocalització API
     #mapa(style="width:100%; height:100%")
     script(type="text/javascript").
-      const onSuccess = function(position) {
-        //- Here I define a style of the circumference that shows the current position.
-        var style = new ol.style.Style({
+      export default {
+    data() {
+      return {
+        map: null,
+        vectorLayer: null,
+        style: new ol.style.Style({
           image: new ol.style.Circle({
             radius: 10,
             snapToPixel: false,
@@ -34,14 +37,20 @@ html(lang="ca")
               color: 'white', width: 5
             })
           })
-        });
-
+        })
+      }
+    },
+    mounted() {
+      navigator.geolocation.getCurrentPosition(this.onSuccess, this.onError);
+    },
+    methods: {
+      onSuccess(position) {
         const pos = new ol.View({
           center: ol.proj.fromLonLat([position.coords.longitude, position.coords.latitude]),
           zoom: 18
         });
-        
-        const map = new ol.Map({
+
+        this.map = new ol.Map({
           layers: [
             new ol.layer.Tile({
               source: new ol.source.OSM(),
@@ -56,8 +65,7 @@ html(lang="ca")
           view: pos
         });
 
-        // Add a vector layer and a point feature to represent the user's position, created with help of chatgpt.
-        const vectorLayer = new ol.layer.Vector({
+        this.vectorLayer = new ol.layer.Vector({
           source: new ol.source.Vector({
             features: [
               new ol.Feature({
@@ -67,13 +75,12 @@ html(lang="ca")
           })
         });
 
-        vectorLayer.setStyle(style);
+        this.vectorLayer.setStyle(this.style);
 
-        map.addLayer(vectorLayer);
-      };
-      
-      const onError = function(error) {
+        this.map.addLayer(this.vectorLayer);
+      },
+      onError(error) {
         console.error('Error occurred while retrieving geolocation:', error);
-      };
-      
-      navigator.geolocation.getCurrentPosition(onSuccess, onError);
+      }
+    }
+  }
