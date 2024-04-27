@@ -4,6 +4,7 @@ html(lang="en")
     meta(charset="UTF-8")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
     title Admin
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css")
     link(rel="stylesheet", href="./style.css")
   body
     header
@@ -22,10 +23,10 @@ html(lang="en")
           li
             a(href="./logout") Logout
             
-    div.panellAdmin
+    div.list-group
       li.list-group-item
-        a(href="./registre_usuari") Registrar nou usuari
+        a(href="./registre_usuari" class="list-group-item list-group-item-primary" aria-current="true") Registrar nou usuari
       li.list-group-item
-        a(href="./modificar_usuari") Modificar usuari
+        a(href="./modificar_usuari" class="list-group-item list-group-item-warning" aria-current="true") Modificar usuari
       li.list-group-item
-        a(href="./borrar_usuari") Borrar usuari
+        a(href="./borrar_usuari" class="list-group-item list-group-item-danger" aria-current="true") Borrar usuari

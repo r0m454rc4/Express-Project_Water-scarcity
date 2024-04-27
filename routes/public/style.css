@@ -430,6 +430,10 @@ h1.datosSequia {
   margin-bottom: 20px;
 }
 
+.list-group {
+  margin-top: 150px;
+}
+
 .left-container,
 .right-container {
   width: 48%; /* Ajusta según tus necesidades */
