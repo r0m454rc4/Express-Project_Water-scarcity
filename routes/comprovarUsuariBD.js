@@ -7,6 +7,7 @@ mongoose.set("strictQuery", false);
 mongoose.connect("mongodb://localhost:27017/gp1-projectePart2");
 
 const modelUsuari = Usuari;
+let usuariAdmin = false;
 
 router.post("/comprovarUsuariBD", function (req, res, next) {
   // If I submit the form.
@@ -27,12 +28,11 @@ router.post("/comprovarUsuariBD", function (req, res, next) {
           console.log(`Usuari connectat a mongodb fent servir mongoose.`);
 
           if (usuari.tipus == "admin") {
-            res.location("admin");
+            usuariAdmin = true;
             res.redirect("admin");
           }
         } else {
           console.log("Credencials incorrectes, o usuari no trobat.");
-          res.location("login");
           res.redirect("login");
         }
       } catch (error) {
@@ -42,6 +42,24 @@ router.post("/comprovarUsuariBD", function (req, res, next) {
     }
 
     comprovarUsuariBD(correu, contrasenya);
+  }
+});
+
+router.get("/admin", function (req, res, next) {
+  if (usuariAdmin == true) {
+    res.render("admin");
+  } else {
+    res.status(404).send("Error, no tens permis per accedir a aquesta pagina.");
+  }
+});
+
+router.get("/logout", function (req, res, next) {
+  if (usuariAdmin == true) {
+    console.log("Logout usuari admin.");
+    usuariAdmin = false;
+    res.render("login");
+  } else {
+    res.status(404).send("Error, nomes un usuari connectat pot fer logout.");
   }
 });
 

@@ -38,6 +38,9 @@ app.use("/index", index);
 app.use("/login", login);
 
 app.post("/comprovarUsuariBD", comprovarUsuariBD);
+app.get("/admin", comprovarUsuariBD);
+// Added logout, which is available on admin.
+app.get("/logout", comprovarUsuariBD);
 
 // There are two routes, as I must be able to load the form, and send it to register the new user.
 app.use("/registre_usuari", registre_usuari);

@@ -26,9 +26,4 @@ router.get("/geolocalizacio_OSM", function (req, res, next) {
   res.render("geolocalizacio_OSM");
 });
 
-router.get("/admin", function (req, res, next) {
-  // res.sendFile(path.join(__dirname + "/public", "admin.html"));
-  res.render("admin");
-});
-
 module.exports = router;
